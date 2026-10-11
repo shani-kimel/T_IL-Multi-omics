@@ -1,0 +1,68 @@
+Loaded 747 patients, embedding dim=48, CNA dim=7460
+
+============================================================
+Config A: no CNV (embedding only)
+============================================================
+[no-CNV] fold 1: train C-index=0.7857  test C-index=0.8049 (n_train=602 n_test=145)
+[no-CNV] fold 2: train C-index=0.8021  test C-index=0.6686 (n_train=586 n_test=161)
+[no-CNV] fold 3: train C-index=0.7921  test C-index=0.7799 (n_train=601 n_test=146)
+[no-CNV] fold 4: train C-index=0.7850  test C-index=0.7992 (n_train=605 n_test=142)
+[no-CNV] fold 5: train C-index=0.7819  test C-index=0.8166 (n_train=594 n_test=153)
+[no-CNV] mean train C-index = 0.7894 +/- 0.0072
+[no-CNV] mean test  C-index = 0.7738 +/- 0.0539
+
+============================================================
+Config B: +CNV, raw (embedding + CNA)
+============================================================
+[+CNV-raw] fold 1: train C-index=0.8386  test C-index=0.7823 (n_train=602 n_test=145)
+[+CNV-raw] fold 2: train C-index=0.8438  test C-index=0.6915 (n_train=586 n_test=161)
+[+CNV-raw] fold 3: train C-index=0.8459  test C-index=0.7289 (n_train=601 n_test=146)
+[+CNV-raw] fold 4: train C-index=0.8320  test C-index=0.7322 (n_train=605 n_test=142)
+[+CNV-raw] fold 5: train C-index=0.8386  test C-index=0.7868 (n_train=594 n_test=153)
+[+CNV-raw] mean train C-index = 0.8398 +/- 0.0048
+[+CNV-raw] mean test  C-index = 0.7444 +/- 0.0358
+
+============================================================
+Config C: +CNV, PCA(10) (embedding + CNA reduced to 10 components)
+============================================================
+[+CNV-PCA10] fold 1: train C-index=0.7803  test C-index=0.7875 (n_train=602 n_test=145)  (PCA explained var=94.6%)
+[+CNV-PCA10] fold 2: train C-index=0.7969  test C-index=0.6772 (n_train=586 n_test=161)  (PCA explained var=93.9%)
+[+CNV-PCA10] fold 3: train C-index=0.7884  test C-index=0.7819 (n_train=601 n_test=146)  (PCA explained var=93.4%)
+[+CNV-PCA10] fold 4: train C-index=0.7825  test C-index=0.7920 (n_train=605 n_test=142)  (PCA explained var=93.9%)
+[+CNV-PCA10] fold 5: train C-index=0.7779  test C-index=0.8035 (n_train=594 n_test=153)  (PCA explained var=93.3%)
+[+CNV-PCA10] mean train C-index = 0.7852 +/- 0.0068
+[+CNV-PCA10] mean test  C-index = 0.7684 +/- 0.0462
+
+============================================================
+Config C: +CNV, PCA(20) (embedding + CNA reduced to 20 components)
+============================================================
+[+CNV-PCA20] fold 1: train C-index=0.7894  test C-index=0.7762 (n_train=602 n_test=145)  (PCA explained var=97.3%)
+[+CNV-PCA20] fold 2: train C-index=0.8014  test C-index=0.6743 (n_train=586 n_test=161)  (PCA explained var=97.1%)
+[+CNV-PCA20] fold 3: train C-index=0.7928  test C-index=0.7758 (n_train=601 n_test=146)  (PCA explained var=96.8%)
+[+CNV-PCA20] fold 4: train C-index=0.7866  test C-index=0.7477 (n_train=605 n_test=142)  (PCA explained var=97.1%)
+[+CNV-PCA20] fold 5: train C-index=0.7800  test C-index=0.8046 (n_train=594 n_test=153)  (PCA explained var=97.0%)
+[+CNV-PCA20] mean train C-index = 0.7900 +/- 0.0071
+[+CNV-PCA20] mean test  C-index = 0.7557 +/- 0.0445
+
+============================================================
+Config C: +CNV, PCA(50) (embedding + CNA reduced to 50 components)
+============================================================
+[+CNV-PCA50] fold 1: train C-index=0.8061  test C-index=0.7684 (n_train=602 n_test=145)  (PCA explained var=99.2%)
+[+CNV-PCA50] fold 2: train C-index=0.8066  test C-index=0.7088 (n_train=586 n_test=161)  (PCA explained var=99.2%)
+[+CNV-PCA50] fold 3: train C-index=0.8051  test C-index=0.7609 (n_train=601 n_test=146)  (PCA explained var=99.1%)
+[+CNV-PCA50] fold 4: train C-index=0.7999  test C-index=0.7497 (n_train=605 n_test=142)  (PCA explained var=99.2%)
+[+CNV-PCA50] fold 5: train C-index=0.8010  test C-index=0.7868 (n_train=594 n_test=153)  (PCA explained var=99.2%)
+[+CNV-PCA50] mean train C-index = 0.8037 +/- 0.0027
+[+CNV-PCA50] mean test  C-index = 0.7549 +/- 0.0260
+
+============================================================
+SUMMARY (test C-index)
+============================================================
+Fold  no-CNV      +CNV-raw    +CNV-PCA10       +CNV-PCA20       +CNV-PCA50       
+1     0.8049      0.7823      0.7875           0.7762           0.7684           
+2     0.6686      0.6915      0.6772           0.6743           0.7088           
+3     0.7799      0.7289      0.7819           0.7758           0.7609           
+4     0.7992      0.7322      0.7920           0.7477           0.7497           
+5     0.8166      0.7868      0.8035           0.8046           0.7868           
+Mean  0.7738      0.7444      0.7684           0.7557           0.7549           
+Std   0.0539      0.0358      0.0462           0.0445           0.0260           

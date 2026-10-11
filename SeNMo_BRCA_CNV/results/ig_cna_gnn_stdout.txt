@@ -1,0 +1,43 @@
+patients=747 bins=7460 folds=[1, 2, 3, 4, 5] events=100
+raw CNV: mean=0.2903 median=0.1769 min=-2.471 max=4.039; baseline = raw 0 (copy-neutral)
+[check] encoder re-run vs stored cna_gnn: max abs diff = 0.00e+00
+[check] rebuilt 0.5*(GNN+VAE) OOF risk vs saved frozen-ensemble risk: max abs diff = 1.19e-07
+[check] GNN-branch OOF C-index (pooled) = 0.7937
+head fold 1: IG done in 76s; completeness |sum IG - (f(x)-f(x'))| median=2.47e-03 max=6.37e-02 (median |f(x)-f(x')|=0.355)
+head fold 2: IG done in 81s; completeness |sum IG - (f(x)-f(x'))| median=2.27e-03 max=6.51e-02 (median |f(x)-f(x')|=0.365)
+head fold 3: IG done in 78s; completeness |sum IG - (f(x)-f(x'))| median=2.69e-03 max=5.42e-02 (median |f(x)-f(x')|=0.385)
+head fold 4: IG done in 78s; completeness |sum IG - (f(x)-f(x'))| median=2.66e-03 max=5.29e-02 (median |f(x)-f(x')|=0.360)
+head fold 5: IG done in 83s; completeness |sum IG - (f(x)-f(x'))| median=2.01e-03 max=6.15e-02 (median |f(x)-f(x')|=0.302)
+
+Top-100 share of total mean|IG|: 31.2%
+Top-100 by chromosome: {'8': 79, '11': 12, '7': 9} (all bins: {'8': 7366, '7': 81, '11': 13})
+Top-100 collapse into 34 contiguous region(s)
+Random expectation of top-100 overlap: 1.34 bins
+OOF fold subsets: top100 overlap mean=52.2 [47-58], Spearman mean=0.282 [0.034-0.611]
+per-fold heads, all patients: top100 overlap mean=89.6 [85-95], Spearman mean=0.883 [0.804-0.968]
+bootstrap: top100 overlap with full-cohort mean=80.6 95% [74, 87], Spearman mean=0.850
+top-100 bins selected in >=95% of bootstraps: 57; in top-100 of all 5 OOF folds: 40
+
+chrom  start_bp    end_bp  n_bins  best_rank  sum_mean_abs_ig  mean_signed_ig  corr_cnv_vs_signed_ig  mean_raw_cnv  bootstrap_top100_freq          genes
+    8  37230000  37290000       6          1         0.050739       -0.005753              -0.362264      0.147545               1.000000               
+   11  69430000  69460000       3          2         0.023105       -0.003937              -0.463074      0.275858               1.000000          CCND1
+    8  37790000  37840000       5          4         0.032324       -0.005908              -0.429887      0.190265               1.000000   ADRB3;GOT1L1
+    8  95580000  95590000       1          6         0.009209       -0.001037              -0.137214      0.306223               1.000000               
+   11  69540000  69550000       1          7         0.008726       -0.005756              -0.522041      0.263476               1.000000               
+   11  69400000  69420000       2          8         0.015290       -0.003247              -0.453765      0.270543               1.000000               
+   11  69470000  69530000       6          9         0.026197       -0.003915              -0.392359      0.267793               0.890333   FGF19;ORAOV1
+    8  42390000  42440000       5         10         0.026664        0.000224              -0.055630      0.125267               1.000000 SLC20A2;SMIM19
+    8 145220000 145230000       1         12         0.007360       -0.000317              -0.034615      0.274219               1.000000          MROH1
+    7  55490000  55540000       5         18         0.020352       -0.002111              -0.716868      0.102003               0.998600   LANCL2;VOPP1
+    8  86520000  86570000       5         22         0.016016       -0.002200              -0.276143      0.269917               0.995800       REXO1L1P
+    8  40510000  40560000       5         27         0.013796       -0.002447              -0.364740      0.114861               0.980800          ZMAT4
+    8 125700000 125750000       5         29         0.012501       -0.000557              -0.069792      0.329970               0.998600          MTSS1
+    8  76760000  76780000       2         32         0.007358       -0.000526              -0.120045      0.254966               1.000000               
+    8  77690000  77730000       4         43         0.007686       -0.001213              -0.161453      0.260243               0.897500          ZFHX4
+    8  39690000  39740000       5         45         0.009505       -0.001637              -0.286863      0.115492               0.722000          ADAM2
+    8  39160000  39190000       3         46         0.005260       -0.001576              -0.257403      0.132484               0.651667               
+    8  40370000  40400000       3         48         0.005108       -0.001373              -0.278806      0.130988               0.989667          ZMAT4
+    7  54730000  54760000       3         55         0.004371       -0.000032              -0.118705      0.090193               0.811333               
+    8  37330000  37400000       7         57         0.009272       -0.000881              -0.202939      0.163345               0.568286               
+
+total runtime 418s

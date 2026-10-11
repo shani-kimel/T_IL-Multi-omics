@@ -1,0 +1,10 @@
+# Large data / secrets kept local only
+.env
+data/
+minds/brca_cohort/
+minds/pancancer_by_project/
+minds/pancancer_nonbrca_cohort/
+**/checkpoints*/
+**/pretrain_checkpoints/
+__pycache__/
+.DS_Store

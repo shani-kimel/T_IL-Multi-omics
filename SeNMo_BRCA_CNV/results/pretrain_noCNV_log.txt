@@ -1,0 +1,894 @@
+----------------- Options ---------------
+                 act_type: Sigmoid                       
+               batch_size: 32                            
+                    beta1: 0.9                           
+                    beta2: 0.999                         
+                   cancer: None                          
+          checkpoints_dir: /Users/yariv/Desktop/shani project/SeNMo_BRCA_CNV/results/pretrain_checkpoints	[default: ]
+                 dataroot: /Users/yariv/Desktop/shani project/SeNMo_BRCA_CNV/data	[default: ]
+                  disease: PanCancer_noBRCA_noCNV        	[default: pancancer_indl_cancers]
+             dropout_rate: 0.25                          
+              epoch_count: 1                             
+                 exp_name: surv                          
+                 finetune: False                         
+            frozen_layers: 21                            	[default: 21]
+                  gpu_ids: -1                            	[default: 0]
+            hidden_layers: [1024, 512, 256, 128, 48, 48, 48]
+                init_gain: 0.02                          
+                init_type: max                           
+          input_size_omic: 17172                         	[default: 80697]
+                label_dim: 1                             
+               lambda_cox: 1                             
+               lambda_nll: 1                             
+               lambda_reg: 0.0003                        
+                       lr: 0.002                         
+                lr_policy: linear                        
+                  measure: 1                             
+                     mode: omic                          
+               model_name: omic                          
+                    niter: 0                             
+              niter_decay: 100                           
+                num_folds: 1                             	[default: 5]
+           optimizer_type: adam                          
+                 patience: 0.005                         
+     pretrained_model_dir:                               
+              print_every: 50                            	[default: 1]
+                 reg_type: none                          	[default: all]
+               regression: True                          
+                     task: surv                          
+                  verbose: 1                             	[default: 0]
+             weight_decay: 0.0004                        
+----------------- End -------------------
+Using device: cpu
+Loading data from /Users/yariv/Desktop/shani project/SeNMo_BRCA_CNV/data/PanCancer_noBRCA_noCNV/train/omic_10cv_fold_1.pkl
+*******************************************
+************** SPLIT (1/10) **************
+*******************************************
+Init Type: Self-Normalizing Weights
+SeNMo_Trg(
+  (act): Sigmoid()
+  (encoder): Sequential(
+    (0): Linear(in_features=17172, out_features=1024, bias=True)
+    (1): ELU(alpha=1.0)
+    (2): AlphaDropout(p=0.25, inplace=False)
+    (3): Linear(in_features=1024, out_features=512, bias=True)
+    (4): ELU(alpha=1.0)
+    (5): AlphaDropout(p=0.25, inplace=False)
+    (6): Linear(in_features=512, out_features=256, bias=True)
+    (7): ELU(alpha=1.0)
+    (8): AlphaDropout(p=0.25, inplace=False)
+    (9): Linear(in_features=256, out_features=128, bias=True)
+    (10): ELU(alpha=1.0)
+    (11): AlphaDropout(p=0.25, inplace=False)
+    (12): Linear(in_features=128, out_features=48, bias=True)
+    (13): ELU(alpha=1.0)
+    (14): AlphaDropout(p=0.25, inplace=False)
+    (15): Linear(in_features=48, out_features=48, bias=True)
+    (16): ELU(alpha=1.0)
+    (17): AlphaDropout(p=0.25, inplace=False)
+    (18): Linear(in_features=48, out_features=48, bias=True)
+    (19): ELU(alpha=1.0)
+    (20): AlphaDropout(p=0.25, inplace=False)
+  )
+  (classifier): Sequential(
+    (0): Linear(in_features=48, out_features=1, bias=True)
+  )
+)
+Number of Trainable Parameters: 18285121
+Activation Type: Sigmoid
+Optimizer Type: adam
+Regularization Type: none
+  0%|          | 0/100 [00:00<?, ?it/s]  1%|          | 1/100 [00:16<27:31, 16.68s/it]  2%|▏         | 2/100 [00:33<26:55, 16.49s/it]  3%|▎         | 3/100 [00:49<26:45, 16.55s/it]  4%|▍         | 4/100 [01:07<27:01, 16.90s/it]  5%|▌         | 5/100 [01:24<27:16, 17.23s/it]  6%|▌         | 6/100 [01:41<26:31, 16.94s/it]  7%|▋         | 7/100 [01:56<25:24, 16.39s/it]  8%|▊         | 8/100 [02:12<24:49, 16.19s/it]  9%|▉         | 9/100 [02:27<23:58, 15.81s/it] 10%|█         | 10/100 [02:42<23:22, 15.58s/it] 11%|█         | 11/100 [02:57<22:51, 15.41s/it] 12%|█▏        | 12/100 [03:12<22:25, 15.29s/it] 13%|█▎        | 13/100 [03:27<21:59, 15.17s/it] 14%|█▍        | 14/100 [03:42<21:42, 15.14s/it] 15%|█▌        | 15/100 [03:57<21:25, 15.13s/it] 16%|█▌        | 16/100 [04:12<21:13, 15.16s/it] 17%|█▋        | 17/100 [04:28<21:11, 15.32s/it] 18%|█▊        | 18/100 [04:43<20:48, 15.22s/it] 19%|█▉        | 19/100 [04:58<20:26, 15.14s/it] 20%|██        | 20/100 [05:13<20:08, 15.10s/it] 21%|██        | 21/100 [05:28<20:00, 15.19s/it] 22%|██▏       | 22/100 [05:44<19:54, 15.32s/it] 23%|██▎       | 23/100 [05:59<19:30, 15.20s/it] 24%|██▍       | 24/100 [06:15<19:28, 15.38s/it] 25%|██▌       | 25/100 [06:31<19:28, 15.58s/it] 26%|██▌       | 26/100 [06:46<19:06, 15.50s/it] 27%|██▋       | 27/100 [07:02<18:56, 15.57s/it]Epoch 02/100 Batch 0001/186, Loss    1.1992
+Epoch 02/100 Batch 0051/186, Loss    0.3211
+Epoch 02/100 Batch 0101/186, Loss    0.7271
+Epoch 02/100 Batch 0151/186, Loss    0.7457
+Epoch 02/100 Batch 0186/186, Loss    0.2197
+[Train]		Loss: 0.8308, C-Index: 0.5999
+[Test]		Loss: 0.7894, C-Index: 0.5005
+
+Epoch 03/100 Batch 0001/186, Loss    0.8984
+Epoch 03/100 Batch 0051/186, Loss    1.0225
+Epoch 03/100 Batch 0101/186, Loss    0.7514
+Epoch 03/100 Batch 0151/186, Loss    0.4875
+Epoch 03/100 Batch 0186/186, Loss    0.3412
+[Train]		Loss: 0.7931, C-Index: 0.6138
+[Test]		Loss: 0.7930, C-Index: 0.5811
+
+Epoch 04/100 Batch 0001/186, Loss    0.6843
+Epoch 04/100 Batch 0051/186, Loss    0.6919
+Epoch 04/100 Batch 0101/186, Loss    1.1253
+Epoch 04/100 Batch 0151/186, Loss    0.7475
+Epoch 04/100 Batch 0186/186, Loss    0.6500
+[Train]		Loss: 0.8009, C-Index: 0.5699
+[Test]		Loss: 0.7644, C-Index: 0.6046
+
+Epoch 05/100 Batch 0001/186, Loss    0.6513
+Epoch 05/100 Batch 0051/186, Loss    0.7718
+Epoch 05/100 Batch 0101/186, Loss    0.4618
+Epoch 05/100 Batch 0151/186, Loss    0.6864
+Epoch 05/100 Batch 0186/186, Loss    0.6162
+[Train]		Loss: 0.7893, C-Index: 0.6240
+[Test]		Loss: 0.7397, C-Index: 0.6134
+
+Epoch 06/100 Batch 0001/186, Loss    0.9335
+Epoch 06/100 Batch 0051/186, Loss    0.5408
+Epoch 06/100 Batch 0101/186, Loss    1.0545
+Epoch 06/100 Batch 0151/186, Loss    0.4258
+Epoch 06/100 Batch 0186/186, Loss    0.7505
+[Train]		Loss: 0.7834, C-Index: 0.6109
+[Test]		Loss: 0.7496, C-Index: 0.6378
+
+Epoch 07/100 Batch 0001/186, Loss    0.5571
+Epoch 07/100 Batch 0051/186, Loss    0.8001
+Epoch 07/100 Batch 0101/186, Loss    0.9994
+Epoch 07/100 Batch 0151/186, Loss    0.9305
+Epoch 07/100 Batch 0186/186, Loss    0.2846
+[Train]		Loss: 0.7793, C-Index: 0.6440
+[Test]		Loss: 0.7556, C-Index: 0.6367
+
+Epoch 08/100 Batch 0001/186, Loss    0.7510
+Epoch 08/100 Batch 0051/186, Loss    1.0246
+Epoch 08/100 Batch 0101/186, Loss    0.7800
+Epoch 08/100 Batch 0151/186, Loss    0.8790
+Epoch 08/100 Batch 0186/186, Loss    0.5236
+[Train]		Loss: 0.7766, C-Index: 0.6379
+[Test]		Loss: 0.7635, C-Index: 0.6264
+
+Epoch 09/100 Batch 0001/186, Loss    1.1372
+Epoch 09/100 Batch 0051/186, Loss    0.7275
+Epoch 09/100 Batch 0101/186, Loss    0.9453
+Epoch 09/100 Batch 0151/186, Loss    0.7995
+Epoch 09/100 Batch 0186/186, Loss    0.6728
+[Train]		Loss: 0.7852, C-Index: 0.6311
+[Test]		Loss: 0.7746, C-Index: 0.6197
+
+Epoch 10/100 Batch 0001/186, Loss    0.4307
+Epoch 10/100 Batch 0051/186, Loss    1.1200
+Epoch 10/100 Batch 0101/186, Loss    0.9210
+Epoch 10/100 Batch 0151/186, Loss    0.8952
+Epoch 10/100 Batch 0186/186, Loss    0.1428
+[Train]		Loss: 0.7705, C-Index: 0.6461
+[Test]		Loss: 0.7594, C-Index: 0.6380
+
+Epoch 11/100 Batch 0001/186, Loss    1.0291
+Epoch 11/100 Batch 0051/186, Loss    1.1625
+Epoch 11/100 Batch 0101/186, Loss    0.7680
+Epoch 11/100 Batch 0151/186, Loss    0.8726
+Epoch 11/100 Batch 0186/186, Loss    1.0921
+[Train]		Loss: 0.7664, C-Index: 0.6738
+[Test]		Loss: 0.7680, C-Index: 0.6404
+
+Epoch 12/100 Batch 0001/186, Loss    1.0948
+Epoch 12/100 Batch 0051/186, Loss    1.0312
+Epoch 12/100 Batch 0101/186, Loss    0.5936
+Epoch 12/100 Batch 0151/186, Loss    0.6477
+Epoch 12/100 Batch 0186/186, Loss    0.5254
+[Train]		Loss: 0.7715, C-Index: 0.6233
+[Test]		Loss: 0.7561, C-Index: 0.6328
+
+Epoch 13/100 Batch 0001/186, Loss    0.6284
+Epoch 13/100 Batch 0051/186, Loss    0.7836
+Epoch 13/100 Batch 0101/186, Loss    0.9874
+Epoch 13/100 Batch 0151/186, Loss    0.6643
+Epoch 13/100 Batch 0186/186, Loss    0.3333
+[Train]		Loss: 0.7665, C-Index: 0.6618
+[Test]		Loss: 0.7662, C-Index: 0.6464
+
+Epoch 14/100 Batch 0001/186, Loss    1.0255
+Epoch 14/100 Batch 0051/186, Loss    1.1616
+Epoch 14/100 Batch 0101/186, Loss    0.5049
+Epoch 14/100 Batch 0151/186, Loss    0.5009
+Epoch 14/100 Batch 0186/186, Loss    0.5384
+[Train]		Loss: 0.7604, C-Index: 0.6780
+[Test]		Loss: 0.7915, C-Index: 0.6818
+
+Epoch 15/100 Batch 0001/186, Loss    0.7794
+Epoch 15/100 Batch 0051/186, Loss    0.6153
+Epoch 15/100 Batch 0101/186, Loss    1.0063
+Epoch 15/100 Batch 0151/186, Loss    0.7242
+Epoch 15/100 Batch 0186/186, Loss    0.3784
+[Train]		Loss: 0.7597, C-Index: 0.6790
+[Test]		Loss: 0.7768, C-Index: 0.5832
+
+Epoch 16/100 Batch 0001/186, Loss    0.7482
+Epoch 16/100 Batch 0051/186, Loss    0.7421
+Epoch 16/100 Batch 0101/186, Loss    0.3329
+Epoch 16/100 Batch 0151/186, Loss    0.6327
+Epoch 16/100 Batch 0186/186, Loss    0.0810
+[Train]		Loss: 0.7604, C-Index: 0.6490
+[Test]		Loss: 0.7477, C-Index: 0.6647
+
+Epoch 17/100 Batch 0001/186, Loss    0.8341
+Epoch 17/100 Batch 0051/186, Loss    0.6932
+Epoch 17/100 Batch 0101/186, Loss    1.4068
+Epoch 17/100 Batch 0151/186, Loss    0.5748
+Epoch 17/100 Batch 0186/186, Loss    0.5103
+[Train]		Loss: 0.7465, C-Index: 0.6928
+[Test]		Loss: 0.8886, C-Index: 0.7128
+
+Epoch 18/100 Batch 0001/186, Loss    0.7479
+Epoch 18/100 Batch 0051/186, Loss    1.3069
+Epoch 18/100 Batch 0101/186, Loss    0.7641
+Epoch 18/100 Batch 0151/186, Loss    0.7612
+Epoch 18/100 Batch 0186/186, Loss    0.1815
+[Train]		Loss: 0.7506, C-Index: 0.6874
+[Test]		Loss: 0.7394, C-Index: 0.7554
+
+Epoch 19/100 Batch 0001/186, Loss    0.7601
+Epoch 19/100 Batch 0051/186, Loss    0.4385
+Epoch 19/100 Batch 0101/186, Loss    1.3896
+Epoch 19/100 Batch 0151/186, Loss    0.8489
+Epoch 19/100 Batch 0186/186, Loss    0.4984
+[Train]		Loss: 0.7484, C-Index: 0.6693
+[Test]		Loss: 0.7403, C-Index: 0.6743
+
+Epoch 20/100 Batch 0001/186, Loss    0.6921
+Epoch 20/100 Batch 0051/186, Loss    0.6278
+Epoch 20/100 Batch 0101/186, Loss    0.9119
+Epoch 20/100 Batch 0151/186, Loss    0.7716
+Epoch 20/100 Batch 0186/186, Loss    0.7122
+[Train]		Loss: 0.7479, C-Index: 0.7124
+[Test]		Loss: 0.7428, C-Index: 0.7314
+
+Epoch 21/100 Batch 0001/186, Loss    0.7717
+Epoch 21/100 Batch 0051/186, Loss    0.7889
+Epoch 21/100 Batch 0101/186, Loss    0.5992
+Epoch 21/100 Batch 0151/186, Loss    0.7939
+Epoch 21/100 Batch 0186/186, Loss    0.4751
+[Train]		Loss: 0.7398, C-Index: 0.7254
+[Test]		Loss: 0.8097, C-Index: 0.7108
+
+Epoch 22/100 Batch 0001/186, Loss    0.9933
+Epoch 22/100 Batch 0051/186, Loss    0.8517
+Epoch 22/100 Batch 0101/186, Loss    0.5353
+Epoch 22/100 Batch 0151/186, Loss    1.2428
+Epoch 22/100 Batch 0186/186, Loss    0.2490
+[Train]		Loss: 0.7431, C-Index: 0.7169
+[Test]		Loss: 0.7616, C-Index: 0.7056
+
+Epoch 23/100 Batch 0001/186, Loss    0.6991
+Epoch 23/100 Batch 0051/186, Loss    0.9285
+Epoch 23/100 Batch 0101/186, Loss    0.5383
+Epoch 23/100 Batch 0151/186, Loss    0.9908
+Epoch 23/100 Batch 0186/186, Loss    0.5351
+[Train]		Loss: 0.7391, C-Index: 0.7014
+[Test]		Loss: 0.7759, C-Index: 0.6595
+
+Epoch 24/100 Batch 0001/186, Loss    0.5060
+Epoch 24/100 Batch 0051/186, Loss    1.0222
+Epoch 24/100 Batch 0101/186, Loss    0.5382
+Epoch 24/100 Batch 0151/186, Loss    0.3501
+Epoch 24/100 Batch 0186/186, Loss    0.1894
+[Train]		Loss: 0.7267, C-Index: 0.7187
+[Test]		Loss: 0.7528, C-Index: 0.6653
+
+Epoch 25/100 Batch 0001/186, Loss    0.9768
+Epoch 25/100 Batch 0051/186, Loss    0.5800
+Epoch 25/100 Batch 0101/186, Loss    1.0515
+Epoch 25/100 Batch 0151/186, Loss    1.1183
+Epoch 25/100 Batch 0186/186, Loss    0.9181
+[Train]		Loss: 0.7327, C-Index: 0.7334
+[Test]		Loss: 0.8106, C-Index: 0.6639
+
+Epoch 26/100 Batch 0001/186, Loss    0.5241
+Epoch 26/100 Batch 0051/186, Loss    0.6777
+Epoch 26/100 Batch 0101/186, Loss    1.0429
+Epoch 26/100 Batch 0151/186, Loss    0.7891
+Epoch 26/100 Batch 0186/186, Loss    0.5341
+[Train]		Loss: 0.7284, C-Index: 0.7196
+[Test]		Loss: 0.7526, C-Index: 0.7229
+
+Epoch 27/100 Batch 0001/186, Loss    0.7470
+Epoch 27/100 Batch 0051/186, Loss    0.6034
+Epoch 27/100 Batch 0101/186, Loss    0.2229
+Epoch 27/100 Batch 0151/186, Loss    0.6241
+Epoch 27/100 Batch 0186/186, Loss    0.5351
+[Train]		Loss: 0.7165, C-Index: 0.7545
+[Test]		Loss: 0.7695, C-Index: 0.7420
+
+Epoch 28/100 Batch 0001/186, Loss    0.4731
+Epoch 28/100 Batch 0051/186, Loss    0.6979
+Epoch 28/100 Batch 0101/186, Loss    0.4546
+Epoch 28/100 Batch 0151/186, Loss    0.5287
+Epoch 28/100 Batch 0186/186, Loss    0.5803
+[Train]		Loss: 0.7280, C-Index: 0.7365
+[Test]		Loss: 0.7482, C-Index: 0.7462
+
+Epoch 29/100 Batch 0001/186, Loss    1.1261
+Epoch 29/100 Batch 0051/186, Loss    0.7474
+Epoch 29/100 Batch 0101/186, Loss    1.1154
+Epoch 29/100 Batch 0151/186, Loss    0.9975 28%|██▊       | 28/100 [07:17<18:32, 15.46s/it] 29%|██▉       | 29/100 [07:32<18:17, 15.46s/it] 30%|███       | 30/100 [07:48<17:57, 15.39s/it] 31%|███       | 31/100 [08:05<18:25, 16.02s/it] 32%|███▏      | 32/100 [08:33<22:17, 19.67s/it] 33%|███▎      | 33/100 [08:53<22:00, 19.71s/it] 34%|███▍      | 34/100 [09:11<21:03, 19.15s/it] 35%|███▌      | 35/100 [09:27<19:40, 18.16s/it] 36%|███▌      | 36/100 [09:44<19:05, 17.89s/it] 37%|███▋      | 37/100 [10:10<21:13, 20.22s/it] 38%|███▊      | 38/100 [10:38<23:32, 22.78s/it] 39%|███▉      | 39/100 [11:01<23:14, 22.86s/it] 40%|████      | 40/100 [11:20<21:36, 21.61s/it] 41%|████      | 41/100 [11:40<20:46, 21.12s/it] 42%|████▏     | 42/100 [12:06<21:47, 22.55s/it] 43%|████▎     | 43/100 [12:39<24:32, 25.83s/it] 44%|████▍     | 44/100 [13:18<27:36, 29.58s/it] 45%|████▌     | 45/100 [13:57<29:52, 32.59s/it] 46%|████▌     | 46/100 [14:37<31:12, 34.67s/it] 47%|████▋     | 47/100 [15:17<32:09, 36.41s/it] 48%|████▊     | 48/100 [15:59<32:52, 37.93s/it] 49%|████▉     | 49/100 [16:43<33:56, 39.93s/it] 50%|█████     | 50/100 [17:28<34:26, 41.33s/it] 51%|█████     | 51/100 [18:12<34:18, 42.01s/it] 52%|█████▏    | 52/100 [18:52<33:16, 41.60s/it] 53%|█████▎    | 53/100 [19:33<32:27, 41.44s/it] 54%|█████▍    | 54/100 [20:15<31:45, 41.43s/it] 55%|█████▌    | 55/100 [20:56<30:59, 41.33s/it]
+Epoch 29/100 Batch 0186/186, Loss    1.0782
+[Train]		Loss: 0.7170, C-Index: 0.7527
+[Test]		Loss: 0.7924, C-Index: 0.7413
+
+Epoch 30/100 Batch 0001/186, Loss    0.7192
+Epoch 30/100 Batch 0051/186, Loss    0.5758
+Epoch 30/100 Batch 0101/186, Loss    0.7233
+Epoch 30/100 Batch 0151/186, Loss    0.6504
+Epoch 30/100 Batch 0186/186, Loss    0.2130
+[Train]		Loss: 0.7104, C-Index: 0.7626
+[Test]		Loss: 0.7626, C-Index: 0.7569
+
+Epoch 31/100 Batch 0001/186, Loss    0.7495
+Epoch 31/100 Batch 0051/186, Loss    0.7948
+Epoch 31/100 Batch 0101/186, Loss    0.8029
+Epoch 31/100 Batch 0151/186, Loss    1.0853
+Epoch 31/100 Batch 0186/186, Loss    0.1506
+[Train]		Loss: 0.6960, C-Index: 0.7737
+[Test]		Loss: 0.7745, C-Index: 0.7155
+
+Epoch 32/100 Batch 0001/186, Loss    0.3368
+Epoch 32/100 Batch 0051/186, Loss    0.7263
+Epoch 32/100 Batch 0101/186, Loss    0.9482
+Epoch 32/100 Batch 0151/186, Loss    0.3854
+Epoch 32/100 Batch 0186/186, Loss    0.3323
+[Train]		Loss: 0.6937, C-Index: 0.7751
+[Test]		Loss: 0.7463, C-Index: 0.7437
+
+Epoch 33/100 Batch 0001/186, Loss    1.0156
+Epoch 33/100 Batch 0051/186, Loss    0.7413
+Epoch 33/100 Batch 0101/186, Loss    1.1138
+Epoch 33/100 Batch 0151/186, Loss    0.6625
+Epoch 33/100 Batch 0186/186, Loss    0.5106
+[Train]		Loss: 0.6835, C-Index: 0.7874
+[Test]		Loss: 0.7846, C-Index: 0.7410
+
+Epoch 34/100 Batch 0001/186, Loss    0.8174
+Epoch 34/100 Batch 0051/186, Loss    0.7038
+Epoch 34/100 Batch 0101/186, Loss    1.0363
+Epoch 34/100 Batch 0151/186, Loss    0.5293
+Epoch 34/100 Batch 0186/186, Loss    0.2578
+[Train]		Loss: 0.6848, C-Index: 0.7849
+[Test]		Loss: 0.7838, C-Index: 0.7547
+
+Epoch 35/100 Batch 0001/186, Loss    0.8524
+Epoch 35/100 Batch 0051/186, Loss    0.8102
+Epoch 35/100 Batch 0101/186, Loss    0.4726
+Epoch 35/100 Batch 0151/186, Loss    0.1542
+Epoch 35/100 Batch 0186/186, Loss    0.8635
+[Train]		Loss: 0.6746, C-Index: 0.7917
+[Test]		Loss: 0.7978, C-Index: 0.7264
+
+Epoch 36/100 Batch 0001/186, Loss    0.5844
+Epoch 36/100 Batch 0051/186, Loss    0.9907
+Epoch 36/100 Batch 0101/186, Loss    0.4754
+Epoch 36/100 Batch 0151/186, Loss    0.6445
+Epoch 36/100 Batch 0186/186, Loss    0.2793
+[Train]		Loss: 0.6734, C-Index: 0.7872
+[Test]		Loss: 0.7912, C-Index: 0.7376
+
+Epoch 37/100 Batch 0001/186, Loss    0.8117
+Epoch 37/100 Batch 0051/186, Loss    1.3317
+Epoch 37/100 Batch 0101/186, Loss    1.0932
+Epoch 37/100 Batch 0151/186, Loss    0.7108
+Epoch 37/100 Batch 0186/186, Loss    0.2362
+[Train]		Loss: 0.6602, C-Index: 0.8025
+[Test]		Loss: 0.7782, C-Index: 0.7323
+
+Epoch 38/100 Batch 0001/186, Loss    0.9141
+Epoch 38/100 Batch 0051/186, Loss    1.2632
+Epoch 38/100 Batch 0101/186, Loss    0.7139
+Epoch 38/100 Batch 0151/186, Loss    0.3234
+Epoch 38/100 Batch 0186/186, Loss    0.1633
+[Train]		Loss: 0.6514, C-Index: 0.8104
+[Test]		Loss: 0.7975, C-Index: 0.7394
+
+Epoch 39/100 Batch 0001/186, Loss    0.5920
+Epoch 39/100 Batch 0051/186, Loss    0.6601
+Epoch 39/100 Batch 0101/186, Loss    0.1450
+Epoch 39/100 Batch 0151/186, Loss    0.6407
+Epoch 39/100 Batch 0186/186, Loss    0.3295
+[Train]		Loss: 0.6515, C-Index: 0.8086
+[Test]		Loss: 0.7780, C-Index: 0.7198
+
+Epoch 40/100 Batch 0001/186, Loss    0.3625
+Epoch 40/100 Batch 0051/186, Loss    0.6601
+Epoch 40/100 Batch 0101/186, Loss    0.9846
+Epoch 40/100 Batch 0151/186, Loss    0.6255
+Epoch 40/100 Batch 0186/186, Loss    1.1492
+[Train]		Loss: 0.6454, C-Index: 0.8159
+[Test]		Loss: 0.7513, C-Index: 0.7411
+
+Epoch 41/100 Batch 0001/186, Loss    1.1574
+Epoch 41/100 Batch 0051/186, Loss    0.3415
+Epoch 41/100 Batch 0101/186, Loss    0.7785
+Epoch 41/100 Batch 0151/186, Loss    0.7408
+Epoch 41/100 Batch 0186/186, Loss    0.0234
+[Train]		Loss: 0.6290, C-Index: 0.8239
+[Test]		Loss: 0.7737, C-Index: 0.7488
+
+Epoch 42/100 Batch 0001/186, Loss    0.7780
+Epoch 42/100 Batch 0051/186, Loss    0.4026
+Epoch 42/100 Batch 0101/186, Loss    0.9718
+Epoch 42/100 Batch 0151/186, Loss    0.4898
+Epoch 42/100 Batch 0186/186, Loss    0.2806
+[Train]		Loss: 0.6138, C-Index: 0.8378
+[Test]		Loss: 0.9531, C-Index: 0.7269
+
+Epoch 43/100 Batch 0001/186, Loss    0.5040
+Epoch 43/100 Batch 0051/186, Loss    0.4796
+Epoch 43/100 Batch 0101/186, Loss    0.5485
+Epoch 43/100 Batch 0151/186, Loss    0.5048
+Epoch 43/100 Batch 0186/186, Loss    0.1491
+[Train]		Loss: 0.6073, C-Index: 0.8399
+[Test]		Loss: 0.8639, C-Index: 0.7492
+
+Epoch 44/100 Batch 0001/186, Loss    0.4765
+Epoch 44/100 Batch 0051/186, Loss    0.6089
+Epoch 44/100 Batch 0101/186, Loss    0.4002
+Epoch 44/100 Batch 0151/186, Loss    0.6570
+Epoch 44/100 Batch 0186/186, Loss    0.5556
+[Train]		Loss: 0.6062, C-Index: 0.8418
+[Test]		Loss: 0.9601, C-Index: 0.7306
+
+Epoch 45/100 Batch 0001/186, Loss    0.3588
+Epoch 45/100 Batch 0051/186, Loss    0.7324
+Epoch 45/100 Batch 0101/186, Loss    0.9592
+Epoch 45/100 Batch 0151/186, Loss    0.5811
+Epoch 45/100 Batch 0186/186, Loss    0.4192
+[Train]		Loss: 0.5904, C-Index: 0.8533
+[Test]		Loss: 0.8694, C-Index: 0.7355
+
+Epoch 46/100 Batch 0001/186, Loss    0.5347
+Epoch 46/100 Batch 0051/186, Loss    0.5138
+Epoch 46/100 Batch 0101/186, Loss    0.4800
+Epoch 46/100 Batch 0151/186, Loss    0.4119
+Epoch 46/100 Batch 0186/186, Loss    0.4565
+[Train]		Loss: 0.5878, C-Index: 0.8535
+[Test]		Loss: 0.8811, C-Index: 0.7213
+
+Epoch 47/100 Batch 0001/186, Loss    0.4571
+Epoch 47/100 Batch 0051/186, Loss    0.4662
+Epoch 47/100 Batch 0101/186, Loss    0.6954
+Epoch 47/100 Batch 0151/186, Loss    0.6689
+Epoch 47/100 Batch 0186/186, Loss    0.4176
+[Train]		Loss: 0.5775, C-Index: 0.8547
+[Test]		Loss: 0.8497, C-Index: 0.7043
+
+Epoch 48/100 Batch 0001/186, Loss    0.7317
+Epoch 48/100 Batch 0051/186, Loss    0.5198
+Epoch 48/100 Batch 0101/186, Loss    0.4143
+Epoch 48/100 Batch 0151/186, Loss    0.7490
+Epoch 48/100 Batch 0186/186, Loss    0.2795
+[Train]		Loss: 0.5696, C-Index: 0.8627
+[Test]		Loss: 0.8857, C-Index: 0.7416
+
+Epoch 49/100 Batch 0001/186, Loss    0.4468
+Epoch 49/100 Batch 0051/186, Loss    0.2979
+Epoch 49/100 Batch 0101/186, Loss    0.4235
+Epoch 49/100 Batch 0151/186, Loss    0.2628
+Epoch 49/100 Batch 0186/186, Loss    0.4050
+[Train]		Loss: 0.5840, C-Index: 0.8507
+[Test]		Loss: 0.7681, C-Index: 0.7319
+
+Epoch 50/100 Batch 0001/186, Loss    0.5822
+Epoch 50/100 Batch 0051/186, Loss    0.3201
+Epoch 50/100 Batch 0101/186, Loss    0.4603
+Epoch 50/100 Batch 0151/186, Loss    0.4791
+Epoch 50/100 Batch 0186/186, Loss    0.0000
+[Train]		Loss: 0.5665, C-Index: 0.8625
+[Test]		Loss: 0.8251, C-Index: 0.7478
+
+Epoch 51/100 Batch 0001/186, Loss    0.4135
+Epoch 51/100 Batch 0051/186, Loss    0.5327
+Epoch 51/100 Batch 0101/186, Loss    0.6566
+Epoch 51/100 Batch 0151/186, Loss    0.3901
+Epoch 51/100 Batch 0186/186, Loss    0.4912
+[Train]		Loss: 0.5512, C-Index: 0.8709
+[Test]		Loss: 0.8784, C-Index: 0.7366
+
+Epoch 52/100 Batch 0001/186, Loss    0.5130
+Epoch 52/100 Batch 0051/186, Loss    0.6010
+Epoch 52/100 Batch 0101/186, Loss    0.1950
+Epoch 52/100 Batch 0151/186, Loss    0.5129
+Epoch 52/100 Batch 0186/186, Loss    0.1259
+[Train]		Loss: 0.5594, C-Index: 0.8696
+[Test]		Loss: 1.0194, C-Index: 0.7165
+
+Epoch 53/100 Batch 0001/186, Loss    0.5749
+Epoch 53/100 Batch 0051/186, Loss    0.7762
+Epoch 53/100 Batch 0101/186, Loss    0.5768
+Epoch 53/100 Batch 0151/186, Loss    0.3644
+Epoch 53/100 Batch 0186/186, Loss    0.4985
+[Train]		Loss: 0.5351, C-Index: 0.8792
+[Test]		Loss: 0.9238, C-Index: 0.7250
+
+Epoch 54/100 Batch 0001/186, Loss    0.4845
+Epoch 54/100 Batch 0051/186, Loss    0.4643
+Epoch 54/100 Batch 0101/186, Loss    0.5203
+Epoch 54/100 Batch 0151/186, Loss    0.6055
+Epoch 54/100 Batch 0186/186, Loss    0.0132
+[Train]		Loss: 0.5394, C-Index: 0.8765
+[Test]		Loss: 0.9264, C-Index: 0.7116
+
+Epoch 55/100 Batch 0001/186, Loss    1.2250
+Epoch 55/100 Batch 0051/186, Loss    0.7663
+Epoch 55/100 Batch 0101/186, Loss    0.3867
+Epoch 55/100 Batch 0151/186, Loss    0.3955
+Epoch 55/100 Batch 0186/186, Loss    0.0535
+[Train]		Loss: 0.5394, C-Index: 0.8766
+[Test]		Loss: 0.8840, C-Index: 0.7329
+
+Epoch 56/100 Batch 0001/186, Loss    0.5025
+Epoch 56/100 Batch 0051/186, Loss    0.4216
+Epoch 56/100 Batch 0101/186, Loss    0.3038
+Epoch 56/100 Batch 0151/186, Loss    0.7086
+Epoch 56/100 Batch 0186/186, Loss    0.1482
+[Train]		Loss: 0.5197, C-Index: 0.8854
+[Test]		Loss: 0.9768, C-Index: 0.7252
+
+Epoch 57/100 Batch 0001/186, Loss    0.2321 56%|█████▌    | 56/100 [21:37<30:19, 41.35s/it] 57%|█████▋    | 57/100 [22:19<29:47, 41.57s/it] 58%|█████▊    | 58/100 [23:01<29:11, 41.71s/it] 59%|█████▉    | 59/100 [23:52<30:13, 44.22s/it] 60%|██████    | 60/100 [24:37<29:45, 44.63s/it] 61%|██████    | 61/100 [25:22<29:01, 44.66s/it] 62%|██████▏   | 62/100 [26:07<28:21, 44.78s/it] 63%|██████▎   | 63/100 [27:01<29:20, 47.57s/it] 64%|██████▍   | 64/100 [27:53<29:19, 48.87s/it] 65%|██████▌   | 65/100 [28:48<29:37, 50.77s/it] 66%|██████▌   | 66/100 [29:40<29:01, 51.21s/it] 67%|██████▋   | 67/100 [30:29<27:45, 50.48s/it] 68%|██████▊   | 68/100 [31:16<26:25, 49.54s/it] 69%|██████▉   | 69/100 [32:07<25:45, 49.86s/it] 70%|███████   | 70/100 [32:53<24:23, 48.77s/it] 71%|███████   | 71/100 [33:42<23:30, 48.64s/it] 72%|███████▏  | 72/100 [34:35<23:19, 49.97s/it] 73%|███████▎  | 73/100 [35:24<22:25, 49.84s/it] 74%|███████▍  | 74/100 [36:14<21:32, 49.72s/it] 75%|███████▌  | 75/100 [37:04<20:45, 49.80s/it] 76%|███████▌  | 76/100 [37:52<19:43, 49.33s/it] 77%|███████▋  | 77/100 [38:36<18:16, 47.66s/it] 78%|███████▊  | 78/100 [39:17<16:46, 45.73s/it] 79%|███████▉  | 79/100 [39:59<15:38, 44.69s/it] 80%|████████  | 80/100 [40:42<14:42, 44.13s/it] 81%|████████  | 81/100 [41:25<13:50, 43.70s/it] 82%|████████▏ | 82/100 [42:07<13:00, 43.35s/it]
+Epoch 57/100 Batch 0051/186, Loss    0.4469
+Epoch 57/100 Batch 0101/186, Loss    0.4076
+Epoch 57/100 Batch 0151/186, Loss    0.4004
+Epoch 57/100 Batch 0186/186, Loss    0.1379
+[Train]		Loss: 0.5255, C-Index: 0.8827
+[Test]		Loss: 0.9027, C-Index: 0.7223
+
+Epoch 58/100 Batch 0001/186, Loss    0.6937
+Epoch 58/100 Batch 0051/186, Loss    0.3502
+Epoch 58/100 Batch 0101/186, Loss    0.3245
+Epoch 58/100 Batch 0151/186, Loss    0.5474
+Epoch 58/100 Batch 0186/186, Loss    0.9195
+[Train]		Loss: 0.5459, C-Index: 0.8781
+[Test]		Loss: 0.8941, C-Index: 0.7329
+
+Epoch 59/100 Batch 0001/186, Loss    0.1364
+Epoch 59/100 Batch 0051/186, Loss    0.9357
+Epoch 59/100 Batch 0101/186, Loss    0.9349
+Epoch 59/100 Batch 0151/186, Loss    0.6079
+Epoch 59/100 Batch 0186/186, Loss    0.2052
+[Train]		Loss: 0.5092, C-Index: 0.8911
+[Test]		Loss: 0.9780, C-Index: 0.7212
+
+Epoch 60/100 Batch 0001/186, Loss    0.5820
+Epoch 60/100 Batch 0051/186, Loss    0.3119
+Epoch 60/100 Batch 0101/186, Loss    0.2731
+Epoch 60/100 Batch 0151/186, Loss    0.7326
+Epoch 60/100 Batch 0186/186, Loss    0.4189
+[Train]		Loss: 0.5162, C-Index: 0.8885
+[Test]		Loss: 0.9750, C-Index: 0.7082
+
+Epoch 61/100 Batch 0001/186, Loss    0.1967
+Epoch 61/100 Batch 0051/186, Loss    0.5930
+Epoch 61/100 Batch 0101/186, Loss    0.6023
+Epoch 61/100 Batch 0151/186, Loss    0.7925
+Epoch 61/100 Batch 0186/186, Loss    0.2685
+[Train]		Loss: 0.5042, C-Index: 0.8917
+[Test]		Loss: 0.9222, C-Index: 0.7197
+
+Epoch 62/100 Batch 0001/186, Loss    0.6443
+Epoch 62/100 Batch 0051/186, Loss    0.5794
+Epoch 62/100 Batch 0101/186, Loss    0.5274
+Epoch 62/100 Batch 0151/186, Loss    0.4844
+Epoch 62/100 Batch 0186/186, Loss    0.0873
+[Train]		Loss: 0.4974, C-Index: 0.8930
+[Test]		Loss: 1.0191, C-Index: 0.7238
+
+Epoch 63/100 Batch 0001/186, Loss    0.4831
+Epoch 63/100 Batch 0051/186, Loss    0.3751
+Epoch 63/100 Batch 0101/186, Loss    0.5459
+Epoch 63/100 Batch 0151/186, Loss    0.1526
+Epoch 63/100 Batch 0186/186, Loss    0.1183
+[Train]		Loss: 0.4888, C-Index: 0.8993
+[Test]		Loss: 1.0732, C-Index: 0.7136
+
+Epoch 64/100 Batch 0001/186, Loss    0.5364
+Epoch 64/100 Batch 0051/186, Loss    0.6569
+Epoch 64/100 Batch 0101/186, Loss    0.4020
+Epoch 64/100 Batch 0151/186, Loss    0.3134
+Epoch 64/100 Batch 0186/186, Loss    0.1405
+[Train]		Loss: 0.5002, C-Index: 0.8962
+[Test]		Loss: 0.9911, C-Index: 0.7371
+
+Epoch 65/100 Batch 0001/186, Loss    0.6939
+Epoch 65/100 Batch 0051/186, Loss    0.5143
+Epoch 65/100 Batch 0101/186, Loss    0.7100
+Epoch 65/100 Batch 0151/186, Loss    0.5613
+Epoch 65/100 Batch 0186/186, Loss    0.0641
+[Train]		Loss: 0.4866, C-Index: 0.8996
+[Test]		Loss: 1.0111, C-Index: 0.7276
+
+Epoch 66/100 Batch 0001/186, Loss    0.4983
+Epoch 66/100 Batch 0051/186, Loss    0.5925
+Epoch 66/100 Batch 0101/186, Loss    0.5772
+Epoch 66/100 Batch 0151/186, Loss    0.7571
+Epoch 66/100 Batch 0186/186, Loss    0.3547
+[Train]		Loss: 0.4900, C-Index: 0.8988
+[Test]		Loss: 0.9890, C-Index: 0.7211
+
+Epoch 67/100 Batch 0001/186, Loss    0.5748
+Epoch 67/100 Batch 0051/186, Loss    0.1891
+Epoch 67/100 Batch 0101/186, Loss    0.8118
+Epoch 67/100 Batch 0151/186, Loss    0.4145
+Epoch 67/100 Batch 0186/186, Loss    0.7061
+[Train]		Loss: 0.4779, C-Index: 0.9020
+[Test]		Loss: 0.9896, C-Index: 0.7330
+
+Epoch 68/100 Batch 0001/186, Loss    0.1955
+Epoch 68/100 Batch 0051/186, Loss    0.4998
+Epoch 68/100 Batch 0101/186, Loss    0.6416
+Epoch 68/100 Batch 0151/186, Loss    0.5229
+Epoch 68/100 Batch 0186/186, Loss    0.0110
+[Train]		Loss: 0.4801, C-Index: 0.9006
+[Test]		Loss: 0.9903, C-Index: 0.7175
+
+Epoch 69/100 Batch 0001/186, Loss    0.2217
+Epoch 69/100 Batch 0051/186, Loss    0.5862
+Epoch 69/100 Batch 0101/186, Loss    0.6595
+Epoch 69/100 Batch 0151/186, Loss    0.4224
+Epoch 69/100 Batch 0186/186, Loss    0.2997
+[Train]		Loss: 0.4843, C-Index: 0.9021
+[Test]		Loss: 0.9489, C-Index: 0.7324
+
+Epoch 70/100 Batch 0001/186, Loss    0.6616
+Epoch 70/100 Batch 0051/186, Loss    0.4262
+Epoch 70/100 Batch 0101/186, Loss    0.9899
+Epoch 70/100 Batch 0151/186, Loss    0.4634
+Epoch 70/100 Batch 0186/186, Loss    0.0000
+[Train]		Loss: 0.4771, C-Index: 0.9027
+[Test]		Loss: 0.9300, C-Index: 0.7229
+
+Epoch 71/100 Batch 0001/186, Loss    0.2565
+Epoch 71/100 Batch 0051/186, Loss    0.9485
+Epoch 71/100 Batch 0101/186, Loss    0.3670
+Epoch 71/100 Batch 0151/186, Loss    0.7242
+Epoch 71/100 Batch 0186/186, Loss    0.1655
+[Train]		Loss: 0.4734, C-Index: 0.9047
+[Test]		Loss: 0.9367, C-Index: 0.7318
+
+Epoch 72/100 Batch 0001/186, Loss    0.2165
+Epoch 72/100 Batch 0051/186, Loss    0.2544
+Epoch 72/100 Batch 0101/186, Loss    0.3869
+Epoch 72/100 Batch 0151/186, Loss    0.7004
+Epoch 72/100 Batch 0186/186, Loss    0.1766
+[Train]		Loss: 0.4582, C-Index: 0.9117
+[Test]		Loss: 0.9203, C-Index: 0.7300
+
+Epoch 73/100 Batch 0001/186, Loss    0.4715
+Epoch 73/100 Batch 0051/186, Loss    0.8489
+Epoch 73/100 Batch 0101/186, Loss    0.2367
+Epoch 73/100 Batch 0151/186, Loss    0.3486
+Epoch 73/100 Batch 0186/186, Loss    0.0033
+[Train]		Loss: 0.4629, C-Index: 0.9090
+[Test]		Loss: 1.0090, C-Index: 0.7178
+
+Epoch 74/100 Batch 0001/186, Loss    0.1852
+Epoch 74/100 Batch 0051/186, Loss    0.1514
+Epoch 74/100 Batch 0101/186, Loss    0.2389
+Epoch 74/100 Batch 0151/186, Loss    0.6330
+Epoch 74/100 Batch 0186/186, Loss    0.0000
+[Train]		Loss: 0.4535, C-Index: 0.9104
+[Test]		Loss: 0.9213, C-Index: 0.7259
+
+Epoch 75/100 Batch 0001/186, Loss    0.3921
+Epoch 75/100 Batch 0051/186, Loss    0.4453
+Epoch 75/100 Batch 0101/186, Loss    0.5505
+Epoch 75/100 Batch 0151/186, Loss    0.4447
+Epoch 75/100 Batch 0186/186, Loss    0.2044
+[Train]		Loss: 0.4584, C-Index: 0.9090
+[Test]		Loss: 1.0322, C-Index: 0.7035
+
+Epoch 76/100 Batch 0001/186, Loss    0.2676
+Epoch 76/100 Batch 0051/186, Loss    0.5186
+Epoch 76/100 Batch 0101/186, Loss    0.7282
+Epoch 76/100 Batch 0151/186, Loss    0.5846
+Epoch 76/100 Batch 0186/186, Loss    0.3631
+[Train]		Loss: 0.4473, C-Index: 0.9154
+[Test]		Loss: 0.9826, C-Index: 0.7241
+
+Epoch 77/100 Batch 0001/186, Loss    0.4603
+Epoch 77/100 Batch 0051/186, Loss    0.6109
+Epoch 77/100 Batch 0101/186, Loss    0.3454
+Epoch 77/100 Batch 0151/186, Loss    0.6117
+Epoch 77/100 Batch 0186/186, Loss    0.5542
+[Train]		Loss: 0.4499, C-Index: 0.9136
+[Test]		Loss: 0.9411, C-Index: 0.7269
+
+Epoch 78/100 Batch 0001/186, Loss    0.2908
+Epoch 78/100 Batch 0051/186, Loss    0.6340
+Epoch 78/100 Batch 0101/186, Loss    0.2271
+Epoch 78/100 Batch 0151/186, Loss    0.2632
+Epoch 78/100 Batch 0186/186, Loss    0.0572
+[Train]		Loss: 0.4449, C-Index: 0.9146
+[Test]		Loss: 0.9805, C-Index: 0.7305
+
+Epoch 79/100 Batch 0001/186, Loss    0.2630
+Epoch 79/100 Batch 0051/186, Loss    0.4067
+Epoch 79/100 Batch 0101/186, Loss    0.1967
+Epoch 79/100 Batch 0151/186, Loss    0.5372
+Epoch 79/100 Batch 0186/186, Loss    0.5460
+[Train]		Loss: 0.4669, C-Index: 0.9079
+[Test]		Loss: 0.9756, C-Index: 0.7135
+
+Epoch 80/100 Batch 0001/186, Loss    0.4188
+Epoch 80/100 Batch 0051/186, Loss    0.2279
+Epoch 80/100 Batch 0101/186, Loss    0.3640
+Epoch 80/100 Batch 0151/186, Loss    0.3249
+Epoch 80/100 Batch 0186/186, Loss    0.6824
+[Train]		Loss: 0.4435, C-Index: 0.9140
+[Test]		Loss: 0.9775, C-Index: 0.7212
+
+Epoch 81/100 Batch 0001/186, Loss    0.4509
+Epoch 81/100 Batch 0051/186, Loss    0.9718
+Epoch 81/100 Batch 0101/186, Loss    0.2510
+Epoch 81/100 Batch 0151/186, Loss    0.3064
+Epoch 81/100 Batch 0186/186, Loss    0.2281
+[Train]		Loss: 0.4427, C-Index: 0.9177
+[Test]		Loss: 0.9525, C-Index: 0.7390
+
+Epoch 82/100 Batch 0001/186, Loss    0.3825
+Epoch 82/100 Batch 0051/186, Loss    0.2478
+Epoch 82/100 Batch 0101/186, Loss    0.0928
+Epoch 82/100 Batch 0151/186, Loss    0.7043
+Epoch 82/100 Batch 0186/186, Loss    0.0542
+[Train]		Loss: 0.4301, C-Index: 0.9197
+[Test]		Loss: 1.0319, C-Index: 0.7116
+
+Epoch 83/100 Batch 0001/186, Loss    0.5425
+Epoch 83/100 Batch 0051/186, Loss    0.5235
+Epoch 83/100 Batch 0101/186, Loss    0.4996
+Epoch 83/100 Batch 0151/186, Loss    0.3292
+Epoch 83/100 Batch 0186/186, Loss    0.0000
+[Train]		Loss: 0.4473, C-Index: 0.9149
+[Test]		Loss: 0.9485, C-Index: 0.7327
+
+Epoch 84/100 Batch 0001/186, Loss    0.2406
+Epoch 84/100 Batch 0051/186, Loss    0.2754
+Epoch 84/100 Batch 0101/186, Loss    0.5067
+Epoch 84/100 Batch 0151/186, Loss    0.5104
+Epoch 84/100 Batch 0186/186, Loss    0.2559 83%|████████▎ | 83/100 [42:52<12:23, 43.72s/it] 84%|████████▍ | 84/100 [43:34<11:32, 43.27s/it] 85%|████████▌ | 85/100 [44:16<10:45, 43.04s/it] 86%|████████▌ | 86/100 [45:00<10:03, 43.10s/it] 87%|████████▋ | 87/100 [45:43<09:20, 43.08s/it] 88%|████████▊ | 88/100 [46:25<08:34, 42.84s/it] 89%|████████▉ | 89/100 [47:24<08:44, 47.66s/it] 90%|█████████ | 90/100 [48:13<08:01, 48.14s/it] 91%|█████████ | 91/100 [49:02<07:14, 48.27s/it] 92%|█████████▏| 92/100 [49:55<06:36, 49.62s/it] 93%|█████████▎| 93/100 [50:46<05:51, 50.24s/it] 94%|█████████▍| 94/100 [51:38<05:03, 50.61s/it] 95%|█████████▌| 95/100 [52:26<04:10, 50.00s/it] 96%|█████████▌| 96/100 [53:13<03:16, 49.13s/it] 97%|█████████▋| 97/100 [53:56<02:21, 47.26s/it] 98%|█████████▊| 98/100 [54:16<01:17, 38.94s/it] 99%|█████████▉| 99/100 [54:34<00:32, 32.80s/it]100%|██████████| 100/100 [54:51<00:00, 28.02s/it]100%|██████████| 100/100 [54:51<00:00, 32.92s/it]
+
+[Train]		Loss: 0.4277, C-Index: 0.9192
+[Test]		Loss: 1.0105, C-Index: 0.7211
+
+Epoch 85/100 Batch 0001/186, Loss    0.6871
+Epoch 85/100 Batch 0051/186, Loss    0.3003
+Epoch 85/100 Batch 0101/186, Loss    0.3982
+Epoch 85/100 Batch 0151/186, Loss    0.3304
+Epoch 85/100 Batch 0186/186, Loss    0.1897
+[Train]		Loss: 0.4245, C-Index: 0.9215
+[Test]		Loss: 1.0029, C-Index: 0.7174
+
+Epoch 86/100 Batch 0001/186, Loss    0.3060
+Epoch 86/100 Batch 0051/186, Loss    0.3157
+Epoch 86/100 Batch 0101/186, Loss    0.4875
+Epoch 86/100 Batch 0151/186, Loss    0.6003
+Epoch 86/100 Batch 0186/186, Loss    0.4428
+[Train]		Loss: 0.4159, C-Index: 0.9267
+[Test]		Loss: 1.0276, C-Index: 0.7140
+
+Epoch 87/100 Batch 0001/186, Loss    0.3496
+Epoch 87/100 Batch 0051/186, Loss    0.1583
+Epoch 87/100 Batch 0101/186, Loss    0.3061
+Epoch 87/100 Batch 0151/186, Loss    0.3602
+Epoch 87/100 Batch 0186/186, Loss    0.0715
+[Train]		Loss: 0.4267, C-Index: 0.9210
+[Test]		Loss: 1.0623, C-Index: 0.7036
+
+Epoch 88/100 Batch 0001/186, Loss    0.3962
+Epoch 88/100 Batch 0051/186, Loss    0.6173
+Epoch 88/100 Batch 0101/186, Loss    0.4745
+Epoch 88/100 Batch 0151/186, Loss    0.4753
+Epoch 88/100 Batch 0186/186, Loss    0.0038
+[Train]		Loss: 0.4138, C-Index: 0.9255
+[Test]		Loss: 1.0028, C-Index: 0.7047
+
+Epoch 89/100 Batch 0001/186, Loss    0.6717
+Epoch 89/100 Batch 0051/186, Loss    0.2310
+Epoch 89/100 Batch 0101/186, Loss    0.5814
+Epoch 89/100 Batch 0151/186, Loss    0.3642
+Epoch 89/100 Batch 0186/186, Loss    0.0000
+[Train]		Loss: 0.4062, C-Index: 0.9284
+[Test]		Loss: 1.0152, C-Index: 0.7168
+
+Epoch 90/100 Batch 0001/186, Loss    0.3343
+Epoch 90/100 Batch 0051/186, Loss    0.5136
+Epoch 90/100 Batch 0101/186, Loss    0.2886
+Epoch 90/100 Batch 0151/186, Loss    0.3795
+Epoch 90/100 Batch 0186/186, Loss    0.1749
+[Train]		Loss: 0.4009, C-Index: 0.9285
+[Test]		Loss: 1.0269, C-Index: 0.7166
+
+Epoch 91/100 Batch 0001/186, Loss    0.3100
+Epoch 91/100 Batch 0051/186, Loss    0.3880
+Epoch 91/100 Batch 0101/186, Loss    0.4402
+Epoch 91/100 Batch 0151/186, Loss    1.0236
+Epoch 91/100 Batch 0186/186, Loss    0.8513
+[Train]		Loss: 0.4127, C-Index: 0.9262
+[Test]		Loss: 1.0374, C-Index: 0.7095
+
+Epoch 92/100 Batch 0001/186, Loss    0.3473
+Epoch 92/100 Batch 0051/186, Loss    0.4300
+Epoch 92/100 Batch 0101/186, Loss    0.5271
+Epoch 92/100 Batch 0151/186, Loss    0.5595
+Epoch 92/100 Batch 0186/186, Loss    0.0493
+[Train]		Loss: 0.4035, C-Index: 0.9276
+[Test]		Loss: 1.0166, C-Index: 0.7117
+
+Epoch 93/100 Batch 0001/186, Loss    0.6308
+Epoch 93/100 Batch 0051/186, Loss    0.4117
+Epoch 93/100 Batch 0101/186, Loss    0.3378
+Epoch 93/100 Batch 0151/186, Loss    0.3209
+Epoch 93/100 Batch 0186/186, Loss    0.1440
+[Train]		Loss: 0.4006, C-Index: 0.9309
+[Test]		Loss: 1.0575, C-Index: 0.6985
+
+Epoch 94/100 Batch 0001/186, Loss    0.3812
+Epoch 94/100 Batch 0051/186, Loss    0.2362
+Epoch 94/100 Batch 0101/186, Loss    0.7311
+Epoch 94/100 Batch 0151/186, Loss    0.6725
+Epoch 94/100 Batch 0186/186, Loss    0.1474
+[Train]		Loss: 0.3972, C-Index: 0.9315
+[Test]		Loss: 1.0405, C-Index: 0.7055
+
+Epoch 95/100 Batch 0001/186, Loss    0.4865
+Epoch 95/100 Batch 0051/186, Loss    0.0805
+Epoch 95/100 Batch 0101/186, Loss    0.2092
+Epoch 95/100 Batch 0151/186, Loss    0.4674
+Epoch 95/100 Batch 0186/186, Loss    0.0705
+[Train]		Loss: 0.3935, C-Index: 0.9326
+[Test]		Loss: 1.0333, C-Index: 0.7070
+
+Epoch 96/100 Batch 0001/186, Loss    0.3740
+Epoch 96/100 Batch 0051/186, Loss    0.4253
+Epoch 96/100 Batch 0101/186, Loss    0.2872
+Epoch 96/100 Batch 0151/186, Loss    0.6487
+Epoch 96/100 Batch 0186/186, Loss    0.0029
+[Train]		Loss: 0.3995, C-Index: 0.9314
+[Test]		Loss: 1.0419, C-Index: 0.7053
+
+Epoch 97/100 Batch 0001/186, Loss    0.7277
+Epoch 97/100 Batch 0051/186, Loss    0.4659
+Epoch 97/100 Batch 0101/186, Loss    0.5743
+Epoch 97/100 Batch 0151/186, Loss    0.3515
+Epoch 97/100 Batch 0186/186, Loss    0.1989
+[Train]		Loss: 0.3899, C-Index: 0.9341
+[Test]		Loss: 1.0415, C-Index: 0.7096
+
+Epoch 98/100 Batch 0001/186, Loss    0.1452
+Epoch 98/100 Batch 0051/186, Loss    0.3042
+Epoch 98/100 Batch 0101/186, Loss    0.3810
+Epoch 98/100 Batch 0151/186, Loss    0.6393
+Epoch 98/100 Batch 0186/186, Loss    0.0761
+[Train]		Loss: 0.3870, C-Index: 0.9348
+[Test]		Loss: 1.0215, C-Index: 0.7151
+
+Epoch 99/100 Batch 0001/186, Loss    0.3818
+Epoch 99/100 Batch 0051/186, Loss    0.4385
+Epoch 99/100 Batch 0101/186, Loss    0.3498
+Epoch 99/100 Batch 0151/186, Loss    0.5181
+Epoch 99/100 Batch 0186/186, Loss    0.2810
+[Train]		Loss: 0.3782, C-Index: 0.9364
+[Test]		Loss: 1.0591, C-Index: 0.7048
+
+Epoch 100/100 Batch 0001/186, Loss    0.2510
+Epoch 100/100 Batch 0051/186, Loss    0.3791
+Epoch 100/100 Batch 0101/186, Loss    0.5798
+Epoch 100/100 Batch 0151/186, Loss    0.7471
+Epoch 100/100 Batch 0186/186, Loss    0.1898
+[Train]		Loss: 0.3836, C-Index: 0.9349
+[Test]		Loss: 1.0472, C-Index: 0.7069
+
+Epoch 101/100 Batch 0001/186, Loss    0.2730
+Epoch 101/100 Batch 0051/186, Loss    0.1986
+Epoch 101/100 Batch 0101/186, Loss    0.6212
+Epoch 101/100 Batch 0151/186, Loss    0.2392
+Epoch 101/100 Batch 0186/186, Loss    0.0064
+[Train]		Loss: 0.3771, C-Index: 0.9366
+[Test]		Loss: 1.0472, C-Index: 0.7075
+
+[Final] Train Loss: 0.4833143047, Test Loss: 1.0471903409
+[Final] Apply model to training set: C-Index: 0.9261598235, P-Value: 0.0000000000e+00
+[Final] Apply model to testing set: C-Index: 0.7074885082, P-Value: 7.7870266611e-33
+Saving Model
+ Saving model to /Users/yariv/Desktop/shani project/SeNMo_BRCA_CNV/results/pretrain_checkpoints/surv/omic/PanCancer_noBRCA_noCNV/Checkpoint_PanCancer_noBRCA_noCNV_omic_fold1_for_test.pt
+
+Dumping pkl files of predictions
+Split Train Results: [0.9261598235319523]
+Split Test Results: [0.7074885082165239]
+Average Train: 0.9261598235319523
+Average Test: 0.7074885082165239
+Dumping the CIndex results in pkl files
+Done!

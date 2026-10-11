@@ -1,0 +1,52 @@
+Error connecting to PostgreSQL database: connection to server at "127.0.0.1", 
+port 5433 failed: Connection refused
+        Is the server running on that host and accepting TCP/IP connections?
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━━━━━━┓
+┃ Modality                            ┃ File Count ┃ Total Size ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━╇━━━━━━━━━━━━┩
+│ Slide Image                         │ 3112       │ 1527.07 GB │
+│ Masked Intensities                  │ 2476       │ 13.95 GB   │
+│ Methylation Beta Value              │ 1238       │ 11.13 GB   │
+│ Gene Level Copy Number              │ 3314       │ 10.62 GB   │
+│ Biospecimen Supplement              │ 13175      │ 7.97 GB    │
+│ Gene Expression Quantification      │ 1231       │ 4.86 GB    │
+│ Clinical Supplement                 │ 11056      │ 3.74 GB    │
+│ Isoform Expression Quantification   │ 1207       │ 397.28 MB  │
+│ Copy Number Segment                 │ 3256       │ 203.02 MB  │
+│ Pathology Report                    │ 1105       │ 191.46 MB  │
+│ miRNA Expression Quantification     │ 1207       │ 57.80 MB   │
+│ Masked Copy Number Segment          │ 2229       │ 30.75 MB   │
+│ Masked Somatic Mutation             │ 992        │ 30.53 MB   │
+│ Allele-specific Copy Number Segment │ 2257       │ 24.46 MB   │
+│ Protein Expression Quantification   │ 919        │ 19.59 MB   │
+└─────────────────────────────────────┴────────────┴────────────┘
+Downloading files from GDC ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:00
+╭───────────────────── Traceback (most recent call last) ──────────────────────╮
+│ in <module>:5                                                                │
+│                                                                              │
+│ /Users/yariv/Desktop/shani                                                   │
+│ project/.venv/lib/python3.12/site-packages/med_minds/__init__.py:120 in      │
+│ download                                                                     │
+│                                                                              │
+│   117 │   │   self._download_gdc_files(threads, include=include, exclude=exc │
+│   118 │   │                                                                  │
+│   119 │   │   if use_idc:                                                    │
+│ ❱ 120 │   │   │   self._download_idc_files(threads, include=include, exclude │
+│   121 │   │   else:                                                          │
+│   122 │   │   │   import warnings                                            │
+│   123                                                                        │
+│                                                                              │
+│ /Users/yariv/Desktop/shani                                                   │
+│ project/.venv/lib/python3.12/site-packages/med_minds/__init__.py:195 in      │
+│ _download_idc_files                                                          │
+│                                                                              │
+│   192 │   │   idc_downloader = IDCFileDownloader(                            │
+│   193 │   │   │   self.output_dir, MAX_WORKERS=threads, include=include, exc │
+│   194 │   │   )                                                              │
+│ ❱ 195 │   │   idc_downloader.process_cases(self.data.values.tolist())        │
+│   196 │                                                                      │
+│   197 │   def _download_tcia_files(self, threads, include=None, exclude=None │
+│   198 │   │   """                                                            │
+╰──────────────────────────────────────────────────────────────────────────────╯
+AttributeError: 'NoneType' object has no attribute 'values'

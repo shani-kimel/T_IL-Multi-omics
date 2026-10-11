@@ -1,0 +1,55 @@
+╭─────────────────────────────── Update Process ───────────────────────────────╮
+│ Starting database update process                                             │
+╰──────────────────────────────────────────────────────────────────────────────╯
+Downloading data files...
+✓ clinical.cases_selection.2026-09-05.tar.gz complete (31.45 MB)    ━━━━━ 100… ?
+                                                                          byt…  
+✓ biospecimen.cases_selection.2026-09-05.tar.gz complete (47.06 MB) ━━━━━ 100… ?
+                                                                          byt…  
+Extracting downloaded files...
+╭──────────────────────────── Extraction Complete ─────────────────────────────╮
+│ ✓ All files extracted successfully                                           │
+╰──────────────────────────────────────────────────────────────────────────────╯
+Update process completed successfully!
+Uploading new data to the database
+/Users/yariv/Desktop/shani project/.venv/lib/python3.12/site-packages/med_minds/database.py:269: FutureWarning: Downcasting behavior in `replace` is deprecated and will be removed in a future version. To retain the old behavior, explicitly call `result.infer_objects(copy=False)`. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df.replace("'--", np.nan, inplace=True)
+/Users/yariv/Desktop/shani project/.venv/lib/python3.12/site-packages/med_minds/database.py:269: FutureWarning: Downcasting behavior in `replace` is deprecated and will be removed in a future version. To retain the old behavior, explicitly call `result.infer_objects(copy=False)`. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df.replace("'--", np.nan, inplace=True)
+/Users/yariv/Desktop/shani project/.venv/lib/python3.12/site-packages/med_minds/database.py:269: FutureWarning: Downcasting behavior in `replace` is deprecated and will be removed in a future version. To retain the old behavior, explicitly call `result.infer_objects(copy=False)`. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df.replace("'--", np.nan, inplace=True)
+/Users/yariv/Desktop/shani project/.venv/lib/python3.12/site-packages/med_minds/database.py:269: FutureWarning: Downcasting behavior in `replace` is deprecated and will be removed in a future version. To retain the old behavior, explicitly call `result.infer_objects(copy=False)`. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df.replace("'--", np.nan, inplace=True)
+/Users/yariv/Desktop/shani project/.venv/lib/python3.12/site-packages/med_minds/database.py:269: FutureWarning: Downcasting behavior in `replace` is deprecated and will be removed in a future version. To retain the old behavior, explicitly call `result.infer_objects(copy=False)`. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df.replace("'--", np.nan, inplace=True)
+/Users/yariv/Desktop/shani project/.venv/lib/python3.12/site-packages/med_minds/database.py:269: FutureWarning: Downcasting behavior in `replace` is deprecated and will be removed in a future version. To retain the old behavior, explicitly call `result.infer_objects(copy=False)`. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df.replace("'--", np.nan, inplace=True)
+/Users/yariv/Desktop/shani project/.venv/lib/python3.12/site-packages/med_minds/database.py:269: FutureWarning: Downcasting behavior in `replace` is deprecated and will be removed in a future version. To retain the old behavior, explicitly call `result.infer_objects(copy=False)`. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df.replace("'--", np.nan, inplace=True)
+/Users/yariv/Desktop/shani project/.venv/lib/python3.12/site-packages/med_minds/database.py:269: FutureWarning: Downcasting behavior in `replace` is deprecated and will be removed in a future version. To retain the old behavior, explicitly call `result.infer_objects(copy=False)`. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df.replace("'--", np.nan, inplace=True)
+  Processing files...                      ━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:14:04
+⠹ Completed family_history.tsv                                        1% 0:14:04
+  Creating and populating family_history   ━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:03
+⠹ Completed pathology_detail.tsv                                      1% 0:14:00
+  Creating and populating pathology_detail ━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:11
+⠹ Completed clinical.tsv                                              1% 0:13:49
+  Creating and populating clinical         ━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:01:47
+⠹ Completed portion.tsv                                               1% 0:11:57
+  Creating and populating portion          ━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:01:17
+⠹ Completed follow_up.tsv                                             1% 0:10:40
+  Creating and populating follow_up        ━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:05:16
+⠹ Completed sample.tsv                                                1% 0:05:15
+  Creating and populating sample           ━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:57
+⠹ Completed aliquot.tsv                                               1% 0:04:17
+  Creating and populating aliquot          ━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:02:26
+⠹ Completed exposure.tsv                                              1% 0:01:49
+  Creating and populating exposure         ━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:03
+⠹ Completed analyte.tsv                                               1% 0:01:45
+  Creating and populating analyte          ━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:01:13
+⠹ Completed slide.tsv                                                 1% 0:00:30
+  Creating and populating slide            ━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:30
+╭────────────────────────────────── Success ───────────────────────────────────╮
+│ ✓ Database update completed successfully!                                    │
+╰──────────────────────────────────────────────────────────────────────────────╯
+DONE

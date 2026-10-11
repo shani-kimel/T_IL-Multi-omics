@@ -1,0 +1,18 @@
+# Data, checkpoints, and extracted embeddings are never tracked here --
+# regenerate them by running the pipeline in README.md.
+data/
+results/
+minds/*_cohort/
+minds/pancancer_*/
+*.pt
+*.pkl
+*.parquet
+
+# Secrets and run logs
+.env
+*_log.txt
+*.log
+
+__pycache__/
+*.pyc
+.DS_Store
