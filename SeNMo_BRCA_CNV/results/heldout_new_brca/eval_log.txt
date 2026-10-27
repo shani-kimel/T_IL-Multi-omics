@@ -1,0 +1,18 @@
+CNV source variant: masked
+GDC-mapped BRCA patients: 1096; not in dev cohort: 349; excluded: {'no SeNMo embedding': 22, 'no OS / OS.time': 1, 'OS.time <= 0': 0}; HELD-OUT SET: 326
+held-out events: 48 (14.7%); dev events: 100 (13.4%); median follow-up held-out 843 d vs dev 875 d
+                       model  heldout_cindex  ci_low  ci_high  heldout_cindex_foldavg_heads  dev_apparent_cindex_(train_fit)
+                 SeNMo alone          0.8028  0.7417   0.8602                        0.8027                           0.7902
+                 SeNMo + GNN          0.7628  0.6817   0.8388                        0.7639                           0.8274
+             SeNMo + CNV-VAE          0.8047  0.7393   0.8631                        0.8030                           0.8295
+SeNMo + CNV ensemble (final)          0.7859  0.7158   0.8487                        0.7878                           0.8332
+paired bootstrap ensemble - SeNMo: delta=-0.0170 95% CI [-0.0616, +0.0206]; P(delta>0)=0.199
+                       model  scheme  logrank_p  HR_high_vs_low  HR_ci_low  HR_ci_high  n_Low  n_Mid  n_High  events_Low  events_Mid  events_High
+                 SeNMo alone  median     0.0000          7.7519     2.7816     21.6033    118      0     208           4           0           44
+                 SeNMo alone tertile     0.0000         21.4380     2.9331    156.6896     69    104     153           1          11           36
+                 SeNMo + GNN  median     0.0013          3.1026     1.5001      6.4168    127      0     199           9           0           39
+                 SeNMo + GNN tertile     0.0000          3.4147     1.5050      7.7476     91     81     154           7           6           35
+             SeNMo + CNV-VAE  median     0.0000          6.0587     2.6969     13.6114    121      0     205           7           0           41
+             SeNMo + CNV-VAE tertile     0.0000          6.6282     2.3450     18.7346     78     94     154           4           9           35
+SeNMo + CNV ensemble (final)  median     0.0006          3.1648     1.5737      6.3645    122      0     204          10           0           38
+SeNMo + CNV ensemble (final) tertile     0.0000          8.0345     2.4608     26.2329     86     82     158           3          10           35

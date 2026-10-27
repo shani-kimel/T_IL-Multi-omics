@@ -1,0 +1,30 @@
+liftover hg19->GRCh38: 7434/7460 bins mappable
+reference (TMO-Net input) GNN-branch OOF C-index: 0.7937
+[unmasked] 1096 patients; bins filled from neighbours: median 0.35%, max 0.66%; remaining NaN 0.000%
+variant                        unmasked
+n_common                            747
+pearson_all_values             0.985158
+median_per_patient_r           0.911581
+p10_per_patient_r              0.068759
+mae                            0.025557
+fit_slope_tmo_on_gdc           0.483084
+fit_intercept                  0.239752
+frac_patients_r_gt_0.9         0.519411
+gnn_risk_pearson_vs_ref        0.938688
+gnn_oof_cindex_gdc_input       0.776767
+gnn_oof_cindex_tmonet_input     0.79371
+[masked] 1096 patients; bins filled from neighbours: median 0.35%, max 3.31%; remaining NaN 0.000%
+variant                          masked
+n_common                            747
+pearson_all_values             0.993709
+median_per_patient_r            0.98801
+p10_per_patient_r              0.660936
+mae                            0.022633
+fit_slope_tmo_on_gdc           0.486193
+fit_intercept                  0.240012
+frac_patients_r_gt_0.9         0.796519
+gnn_risk_pearson_vs_ref        0.996135
+gnn_oof_cindex_gdc_input       0.795194
+gnn_oof_cindex_tmonet_input     0.79371
+best-agreeing variant: masked
+NOTE: fit_slope/fit_intercept above were computed in float32 (numerically wrong); float64 values: unmasked slope=0.9697 intercept=-0.0017; masked slope=0.9868 intercept=-0.0071
